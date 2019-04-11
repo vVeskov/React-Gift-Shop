@@ -1,0 +1,475 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.navigation {
+    background: #383838;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.navigation ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.navigation ul li a {
+    text-decoration: none;
+    padding: 0 1rem 0 0;
+    font-size: 1.5rem;
+    color: whitesmoke;
+}
+
+.navigation ul li {
+    list-style-type: none;
+}
+
+.navigation ul li a:hover {
+    color: red;
+}
+
+.navigation h2 {
+    color: whitesmoke;
+}
+
+.main-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0 2rem 0;
+    border-bottom: 2px solid black;
+}
+
+.main-description button {
+    padding: 0.3rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.main-description button:hover {
+    background: red;
+}
+
+footer {
+    background: #383838;
+    padding: 1rem 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+footer span {
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.top-rated {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+}
+
+main {
+    margin-bottom: 3rem;
+    padding: 2rem;
+}
+
+main section {
+    /* max-width: 30%; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    border-radius: 0.3rem;
+    padding: 0.5rem;
+}
+
+main section div {
+    max-width: 30%;
+    margin-bottom: 1.6rem;
+    display: flex;
+    flex-direction: column;
+}
+
+main section div img {
+    margin-bottom: 1rem;
+    width: 256px;
+    height: 256px;
+}
+
+.gift-description {
+    padding: 0;
+    margin: 0.4rem 0;
+    background: #383838;
+    color: white;
+}
+
+.gift-description .orderBtn:hover {
+    background: black;
+    color: red;
+}
+
+.gift-description span {
+    margin-right: 1rem;
+    font-weight: bold;
+}
+
+.login, .register, .create-gift, .edit-gift form {
+    display: flex;
+    flex-direction: column;
+    max-width: 20%;
+    margin: 5rem 0 0 5rem;
+}
+
+.orders {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-gift form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login button, .register button, .create-gift button, .edit-gift button, .orders button {
+    margin-top: 1rem;
+    width: 40%;
+    background: red;
+    color: black;
+    padding: 0.3rem 0.4rem;
+    border-radius: 0.2rem;
+}
+
+.login input, .register input, .create-gift input, .edit-gift input, .orders input {
+    margin-bottom: 1rem;
+}
+
+.login span, .register span, .create-gift span, .edit-gift span, .orders span, .user-orders span, .pending-orders span {
+    margin-bottom: 0.5rem;
+}
+
+.reg-info {
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    padding-bottom: 1rem;
+}
+
+.about-us {
+    margin: 5rem;
+    text-align: center;
+}
+
+.p-with-font-style {
+    font-style: italic;
+}
+.giftQuantity{
+    margin-top: 0.5rem;
+}
+
+.orders {
+    max-width: 70%;
+    margin: 0;
+}
+
+.orders span {
+    font-weight: bold;
+}
+
+.gift-name, .gift-total-price {
+    background: #383838;
+    color: white;
+    padding: 0.3rem;
+}
+
+.gift-price {
+    margin-bottom: 0.5rem;
+    background: #383838;
+    color: white;
+    padding: 0.3rem;
+}
+
+.order-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.order-buttons .continue-shopping, .continue-shopping1 {
+    margin-top: 0.5rem;
+    background: #3CCE07;
+    color: white;
+    text-decoration: none;
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+    text-align: center;
+}
+
+.continue-shopping1 {
+    max-width: 20%;
+    margin-bottom: 7rem;
+}
+
+.continue-shopping1:hover {
+    background: black;
+    color: greenyellow;
+}
+
+.order-buttons .checkout {
+    margin-top: 0.5rem;
+    background: orange;
+    color: black;
+    border-radius: 0.3rem;
+    padding: 0.3rem;
+    text-decoration: none;
+    text-align: center;
+}
+
+.orders .checkout {
+    width: 100%;
+    background: red;
+    color: black;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+}
+
+.orders-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+}
+
+.user-orders, .pending-orders {
+    display: flex;
+    flex-direction: column;
+    margin: 5rem 0 0 5rem;
+    max-width: 30%;
+}
+
+.order-number, .order-date, .total-price-order, .order-status, .pending-class {
+    font-weight: bold;
+    color: red;
+    background: black;
+}
+
+.pending-action {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 1rem;
+}
+
+.pending-action button {
+    background: green;
+    color: white;
+    padding: 0.2rem 0.6rem;
+}
+
+.logged-username {
+    font-size: 1.5rem;
+    color: red;
+    padding: 0 1rem 0 2rem;
+}
+
+.deleteButton {
+    background: red;
+    padding: 2rem;
+}
+
+.gift-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.gift-details .editButton, .gift-details .orderBtn, .orderBtn1 {
+    background: red;
+    color: black;
+    text-decoration: none;
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 0.7rem;
+    border-radius: 0.3rem;
+}
+
+.orderBtn, .orderBtn1 {
+    margin-right: 1.5rem;
+    font-weight: bold;
+}
+
+.gift-details .deleteButton {
+    background: #3DD407;
+    color: black;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    border-radius: 0.3rem;
+}
+
+.gift-details .editButton:hover, .gift-details .deleteButton:hover, .gift-details .orderBtn:hover, .orderBtn1:hover {
+    background: black;
+    color: white;
+}
+
+.orderBtn1 {
+    background: red;
+    color: black;
+}
+
+.userOrdDetailsBtns {
+    display: flex;
+    flex-direction: row;
+}
+
+.productImage {
+    margin-right: 5rem;
+}
+
+.product-description {
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0 0 7rem;
+    max-width: 50%;
+}
+
+.user-cart, .table-head {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 3rem;
+    font-size: 1.5rem;
+    background: #383838;
+    color: whitesmoke;
+    padding: 0.5rem 0 0.5rem 0.5rem;
+}
+
+.user-cart span, .table-head span {
+    margin-right: 7rem;
+}
+
+.gift-quantity {
+    width: 3%;
+}
+
+.buy-product {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: white;
+    background: #3CCE07;
+    padding: 0.1rem 3rem;
+    border-radius: 0.3rem;
+    text-align: center;
+    margin-right: 1rem;
+}
+
+.productName {
+    width: 30%;
+}
+
+.user-sum {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.5rem;
+    background: #383838;
+    padding: 0.5rem 0 0.5rem 0.5rem;
+}
+
+.totalSum {
+    width: 30%;
+    margin-right: 7rem;
+    color: #3CCE07;
+}
+
+.order-price, .totalSumValue {
+    text-align: left;
+    width: 15%;
+    color: white;
+}
+
+.totalSumValue {
+    font-weight: bold;
+    color: #3CCE07;
+}
+
+.cart-buttons {
+    margin-top: 3rem;
+    margin-bottom: 7rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 1rem;
+}
+
+.continue-shoping {
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    align-items: center;
+    background: red;
+    color: white;
+    border-radius: 0.3rem;
+    padding: 0.3rem 0.5rem 0 0.2rem;
+}
+
+.continue-shoping:hover {
+    background: #383838;
+    color: red;
+}
+
+.buy-product:hover {
+    background: #383838;
+    color: #3CCE07;
+}
+
+.remove-order {
+    text-decoration: none;
+}
+
+.boldText {
+    font-weight: bold;
+}
+.class-title{
+    margin-left:0.5rem;
+}
+.deleteChoosenGift{
+    margin-left: 5rem;
+    border-radius: 0.3rem;
+    background: #F8242F;
+    border:none;
+    color:white;
+}
+.deleteChoosenGift:hover{
+    background: white;
+    color:#F8242F;
+}
+.noCartPage{
+    display: flex;
+    flex-direction: center;
+    flex-direction: column;
+    align-items:center;
+}
+.noGifts{
+    font-weight: bold;
+}
+.backBtn{
+ background: #3CCE07;
+ color:white;
+ text-decoration: none;
+ padding: 0.2rem 0.8rem;
+ border-radius: 0.3rem;
+}
