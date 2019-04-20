@@ -62,7 +62,16 @@ module.exports = {
         }
       })
   },
-  // TO DO !!!
+  addPendingOrders: async (req, res) => {
+    try {
+      console.log(req.body);
+      console.log('pending orders')
+    } catch (error) {
+      console.log(error);
+    }
+   
+  },
+
   deleteSingleGift: (req, res) => {
     let user = req.body.user;
     let productName = req.body.productName;

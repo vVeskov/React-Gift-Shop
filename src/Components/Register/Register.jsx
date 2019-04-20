@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Redirect } from 'react-router-dom';
-import '../styles/style.css';
+import '../../styles/style.css';
 
 class Register extends Component {
 

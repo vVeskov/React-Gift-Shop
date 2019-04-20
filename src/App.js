@@ -2,19 +2,19 @@ import React, { Component, Fragment } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-import Home from './Home/Home';
-import Register from './Register/Register';
-import Header from './Header/Header';
-import Login from './Login/Login';
-import Create from './Create/Create';
 import './App.css';
-import Order from './Order/user-order-menu';
-import Edit from './Edit/Edit';
-import UserOrders from './UserOrders/userOrders';
-import Footer from './Footer/Footer';
-import Details from './Details/Details';
-import Cart from './Cart/Cart'
+
+import Home from './Components/Home/Home';
+import Register from './Components/Register/Register';
+import Header from './Components/Header/Header';
+import Login from './Components/Login/Login';
+import Create from './Components/Create/Create';
+import Order from './Components/Order/user-order-menu';
+import Edit from './Components/Edit/Edit';
+import UserOrders from './Components/UserOrders/userOrders';
+import Footer from './Components/Footer/Footer';
+import Details from './Components/Details/Details';
+import Cart from './Components/Cart/Cart'; 
 
 class App extends Component {
   constructor(props) {
@@ -59,7 +59,7 @@ class App extends Component {
       [event.target.name]: event.target.value,
     })
   }
-
+ 
   handleCreateSubmit(event, data) {
     event.preventDefault();
     if (!data.giftName || !data.description || !data.imageUrl || !data.price) {

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import '../styles/style.css';
+import '../../styles/style.css';
 
 class Cart extends Component {
 
@@ -10,6 +10,7 @@ class Cart extends Component {
         this.state = {
             userOrders: [],
             quantity: 1,
+
         }
 
     }
@@ -46,7 +47,15 @@ class Cart extends Component {
     }
 
     render() {
-        function removeUserOrders(user) {
+        function removeUserOrders(user,data) {
+            console.log(data);
+            fetch('http://localhost:9999/feed/user/addPendingOrders', {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: { 'Content-Type': 'application/json', }
+            })
+
+            
             let userObj = {
                 user: user
             }
@@ -60,13 +69,9 @@ class Cart extends Component {
                 })
 
             )
-            setTimeout(function () { window.location.href = 'http://localhost:3000'; }, 1500);
+            setTimeout(function () { window.location.href = 'http://localhost:3000'; }, 1000);
         }
-
-
-
         let allOrders = this.state.userOrders;
-
         let currentUser = sessionStorage.getItem('username');
         let currentUserOrders = [];
         allOrders.forEach((element) => {
@@ -106,45 +111,58 @@ class Cart extends Component {
             sum += s;
         })
 
+        let giftsArray = [];
+        currentUserOrders.forEach((order) => {
+            giftsArray.push(order.productName);
+        });
+        let dataToSend = {
+            giftsName: giftsArray,
+            totalSum: sum,
+            user:currentUser
+        }
         return (
 
             <Fragment>
                 {
                     sumArray[0] ? (
                         <Fragment>
-                        <h2 className="class-title">My Cart</h2>
-                        <div className="table-head">
-                            <span className="productName">Product</span>
-                            <span className="order-price">Price</span>
-                            <span className="order-price">Quantity</span>
+                            <form action="">
+                                <h2 className="class-title">My Cart</h2>
+                                <div className="table-head">
+                                    <span className="productName">Product</span>
+                                    <span className="order-price">Price</span>
+                                    <span className="order-price">Quantity</span>
 
+                                </div>
+                                {currentUserOrders.map(order => (
+
+                                    <section key={order.productName}>
+                                        <div className="user-cart">
+
+                                            <span className="productName">{order.productName}</span>
+                                            <span className="order-price">{order.price} USD</span>
+                                            <span className="productQnt">{order.giftQnt}</span>
+                                            <button type="submit" className="deleteChoosenGift" onClick={() => { this.deleteSingleGift(currentUser, order.productName) }}>Delete</button>
+                                        </div>
+                                    </section>
+                                ))
+                                }
+                                <div className="user-sum">
+                                    <span className="totalSum">TotalSum:</span>
+                                    <span className="totalSumValue">{`${sum} USD`}</span>
+                                </div>
+                                <div className="cart-buttons">
+                                    <NavLink to="/" className="continue-shoping">Continue Shoping</NavLink>
+                                    <button to="/" onClick={() => { removeUserOrders(currentUser,dataToSend) }} type="submit" className="buy-product">Buy</button>
+                                </div>
+                            </form>
+                        </Fragment>
+                    )
+                        : <div className="noCartPage">
+                            <h2 className="noGifts">Sorry, you have no items in the cart. </h2>
+                            <NavLink className="backBtn" to="/">Back to menu</NavLink>
                         </div>
-                {currentUserOrders.map(order => (
-                    <section key={order.productName}>
-                    <div className="user-cart">
-                        <span className="productName">{order.productName}</span>
-                        <span className="order-price">{order.price} USD</span>
-                        <span className="productQnt">{order.giftQnt}</span>
-                        <button type="submit" className="deleteChoosenGift" onClick={() => { this.deleteSingleGift(currentUser, order.productName) }}>Delete</button>
-                    </div>
-                </section>
-                ))
                 }
-                <div className="user-sum">
-                    <span className="totalSum">TotalSum:</span>
-                    <span className="totalSumValue">{`${sum} USD`}</span>
-                </div>
-                <div className="cart-buttons">
-                    <NavLink to="/" className="continue-shoping">Continue Shoping</NavLink>
-                    <button to="/" onClick={() => { removeUserOrders(currentUser) }} type="submit" className="buy-product">Buy</button>
-                </div>
-              </Fragment>
-                )
-                : <div className="noCartPage">
-                    <h2 className="noGifts">Sorry, you have no items in the cart. </h2>
-                    <NavLink className="backBtn" to="/">Back to menu</NavLink>
-                </div>
-            }
 
             </Fragment>
 

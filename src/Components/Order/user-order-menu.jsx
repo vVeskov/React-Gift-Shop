@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import '../styles/style.css';
+import '../../styles/style.css';
 
 class Order extends Component {
 

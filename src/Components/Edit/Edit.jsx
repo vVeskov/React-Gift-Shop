@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { toast } from 'react-toastify';
-import '../styles/style.css';
+import '../../styles/style.css';
 
 class Edit extends Component {
 

@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-
+import '../../styles/style.css';
 class UserOrders extends Component {
     render() {
         return (
