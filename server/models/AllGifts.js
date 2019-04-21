@@ -7,10 +7,17 @@ const pendingOrdersSchema = new Schema({
         required: true
     }],
     totalSum: {
-        type: mongoose.Schema.Types.Number
+        type: mongoose.Schema.Types.Number,
+        required: true
     },
     user: {
-        type: mongoose.Schema.Types.ObjectId, ref: "User"
+        type: mongoose.Schema.Types.String,
+        required: true
+    },
+    dateCreated: {
+        type: mongoose.Schema.Types.Date,
+        default: Date.now
     }
+
 })
-module.exports = mongoose.model('Pending-Orders', pendingOrdersSchema);
+module.exports = mongoose.model('PendingOrder', pendingOrdersSchema);

@@ -1,5 +1,7 @@
 const Gift = require('../models/Gift');
 const Orders = require('../models/Order');
+const PendingOrder = require('../models/AllGifts');
+
 module.exports = {
 
   getGifts: (req, res) => {
@@ -17,6 +19,15 @@ module.exports = {
       });
   },
 
+  getPendingOrders: (req,res) => {
+    PendingOrder.find().then((orders) => {
+      res.status(200)
+      .json({message:"All orders fetched successfully", orders})
+    }).catch((err) => {
+      next(err);
+    })
+  },
+
   getUserOrders: (req, res) => {
     Orders.find().then((order) => {
       res.status(200)
@@ -30,7 +41,7 @@ module.exports = {
       })
   },
 
-
+  
   createGift: (req, res) => {
     const giftObj = req.body;
     Gift.create(giftObj)
@@ -64,12 +75,30 @@ module.exports = {
   },
   addPendingOrders: async (req, res) => {
     try {
-      console.log(req.body);
-      console.log('pending orders')
+      let data = req.body;
+      let findOrderByUser = await PendingOrder.find({
+        user: data.user
+      });
+      if (findOrderByUser.length < 1) {
+        await PendingOrder.create({
+          user: data.user,
+          totalSum: data.totalSum,
+          giftsName: data.giftsNameAndQnt,
+        });
+      }
+
+      // console.log(findOrderByUser[0].totalSum);
+      else {
+        let giftNames = data.giftsNameAndQnt;
+        let currentSum = findOrderByUser[0].totalSum;
+        let totalSum = data.totalSum + currentSum;
+        await PendingOrder.findOneAndUpdate({ user: data.user }, { $push: { giftsName: giftNames } })
+        await PendingOrder.findOneAndUpdate({ user: data.user }, { $set: { totalSum: totalSum } });
+      }
     } catch (error) {
       console.log(error);
     }
-   
+
   },
 
   deleteSingleGift: (req, res) => {
@@ -84,6 +113,17 @@ module.exports = {
       })
     })
   },
+
+  deleteSingleOrder: (req,res) => {
+    let id = req.body.id;
+    console.log(id);
+    PendingOrder.findByIdAndRemove({
+      _id:id
+    }).catch((err)=>{
+      console.log(err);
+    })
+  },
+
 
   removeUserOrders: (req, res) => {
     let currUser = req.body.user;

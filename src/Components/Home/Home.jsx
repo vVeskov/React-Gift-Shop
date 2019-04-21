@@ -20,15 +20,12 @@ class Home extends Component {
                     closeButton: false,
                 })
             );
-
             { window.location.href = 'http://localhost:3000'; }
         }
-
         return (
             <Fragment>
                 <section className="main-description">
                     <h1>Welcome to our Gift Shop!</h1>
-                    {/* <button className="gift-menu">Gift Menu</button> */}
                 </section>
                 <h2 className="top-rated">Best gifts ever</h2>
                 <main>
@@ -39,8 +36,6 @@ class Home extends Component {
                                 <img src={gift.imageUrl} />
                                 <span className="boldText">Product</span>
                                 <span className="gift-name">{gift.giftName}</span>
-                                {/* <span>Description</span>
-                                <p className="gift-description">{gift.description}</p> */}
                                 <div className="gift-details">
                                     <span className="boldText">Price</span>
                                     <span className="gift-price">{gift.price}</span>

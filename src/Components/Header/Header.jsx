@@ -12,15 +12,18 @@ class Register extends Component {
                         <ul>
                             <li><NavLink exact to="/">Home</NavLink></li>
                             {this.props.isAdmin ?
-                                (<li>
-                                    <NavLink to="/create">Create</NavLink>
-                                </li>)
+                                (
+                                    <Fragment>
+                                        <li>
+                                            <NavLink to="/create">Create</NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink to="/pendingOrders">Pending-Orders</NavLink>
+                                        </li>
+                                    </Fragment>
+                                )
+
                                 : null}
-
-
-                            {/* <li><NavLink to="#">Gifts</NavLink></li> */}
-                            {/* <li><NavLink to="/about">About</NavLink></li>
-                            <li><NavLink to="/contacts">Contacts</NavLink></li> */}
                             {
                                 this.props.username ? (
                                     <Fragment>

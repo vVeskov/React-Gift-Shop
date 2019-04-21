@@ -23,7 +23,7 @@ body {
 
 .navigation ul li a {
     text-decoration: none;
-    padding: 0 1rem 0 0;
+    padding: 0 1.5rem 0 0;
     font-size: 1.5rem;
     color: whitesmoke;
 }
@@ -472,4 +472,56 @@ main section div img {
  text-decoration: none;
  padding: 0.2rem 0.8rem;
  border-radius: 0.3rem;
+}
+.main-pending-orders{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 6rem;
+}
+.pending-orders-title{
+    text-align: center
+}
+.pending-orders{
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin:1rem 2rem;
+    padding: 0 0 1rem 0;
+    border-bottom: 2px solid black;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.pending-order-user,.pending-order-date,.pending-order-sum{
+   margin-bottom: 1.5rem;
+   background: #9CCA6C;
+   padding: 0.3rem;
+}
+.pending-order-orders p{
+    margin-bottom: 0;
+    margin-top:0;
+    background: #9CCA6C;
+    padding:0.3rem;
+}
+.pending-order-orders {
+    margin-bottom: 1.5rem;
+}
+.pendin-orders-gifts{
+    background: #9CCA6C;
+  
+}
+.checkout{
+    width: 7rem;
+    border-radius:0.3rem;
+    padding: 0.3rem;
+    font-size:1.2rem;
+    background: #383838;
+    color:whitesmoke;
+    border:none;
+}
+.checkout:hover{
+ background: black;
+ color:red;
+}
+.pending-order-orders div{
+    padding:0.3rem;
 }

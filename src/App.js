@@ -14,7 +14,7 @@ import Edit from './Components/Edit/Edit';
 import UserOrders from './Components/UserOrders/userOrders';
 import Footer from './Components/Footer/Footer';
 import Details from './Components/Details/Details';
-import Cart from './Components/Cart/Cart'; 
+import Cart from './Components/Cart/Cart';
 
 class App extends Component {
   constructor(props) {
@@ -48,7 +48,6 @@ class App extends Component {
         this.setState({
           gifts: body.gifts
         })
-
       }
       );
   }
@@ -59,7 +58,7 @@ class App extends Component {
       [event.target.name]: event.target.value,
     })
   }
- 
+
   handleCreateSubmit(event, data) {
     event.preventDefault();
     if (!data.giftName || !data.description || !data.imageUrl || !data.price) {
@@ -159,13 +158,17 @@ class App extends Component {
             />}
             path="/register" />
 
-          <Route render={
-            (props) => <UserOrders
-              {...props}
+          <Route
+            path='/pendingOrders'
+            render={
+              (props) =>
+                this.state.isAdmin ? <UserOrders
+                  {...props}
 
-            />}
-            path="/orders/:userId" />
-
+                /> : <Redirect to={{ pathname: '/login' }} />
+            }
+            path="/pendingOrders" />
+            
           <Route
             path='/login'
             render={

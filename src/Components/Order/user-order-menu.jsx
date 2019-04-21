@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import '../../styles/style.css';
 
 class Order extends Component {
@@ -12,7 +12,7 @@ class Order extends Component {
         }
     }
      handleChange(event) {
-         let value = event.target.value;
+        let value = event.target.value;
         if(Number(event.target.value) < 1){
             this.setState({
                 [event.target.name] :Number(value) + 1,
@@ -22,11 +22,7 @@ class Order extends Component {
             [event.target.name] : value,
         })}
     }
-    
-    
-
     render() {
-   
         let currentProduct = {};
         this.props.gifts.forEach(element => {
             if (element._id === this.props.match.params.id) {
@@ -34,9 +30,7 @@ class Order extends Component {
                 return;
             }
         });
-
         let currentUsername = sessionStorage.getItem('username');
-
         let data = {
             productName: currentProduct.giftName,
             price: currentProduct.price,

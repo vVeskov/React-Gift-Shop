@@ -12,5 +12,8 @@ router.get('/user/orders', feedController.getUserOrders);
 router.post('/user/delete',feedController.removeUserOrders);
 router.post('/user/deleteSingleGift',feedController.deleteSingleGift);
 router.post('/user/addPendingOrders',feedController.addPendingOrders);
+router.get('/user/getPendingOrders',feedController.getPendingOrders);
+router.post('/user/deleteSingleOrder',feedController.deleteSingleOrder);
+
 
 module.exports = router;
